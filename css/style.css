@@ -60,6 +60,8 @@ html{
 }
 
 
+
+
 .btn,
 .delete-btn,
 .option-btn{
@@ -146,14 +148,49 @@ html{
     text-decoration: underline;
 }
 
+/* INDEX  */
 
+.title{
+    padding: 1.5rem 1rem;
+    text-align: center;
+    background-color: var(--black);
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: var(--white);
+}
+.title span{
+    color: var(--red);
+}
 
+.profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100hv;
 
+}
+.profile-container .profile{
+    width: 40rem;
+    border-radius: .5rem;
+    background-color: var(--black);
+    padding: 2rem;
+    text-align: center;
+}
+.profile-container .profile img{
 
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    margin-bottom: .5rem;
 
+}
+.profile-container .profile h3{
+    font-size: 2.5rem;
+    padding: 0.5rem 0;
+    color: var(--white);
 
-
-
+}
 
 
 /* MEDIA QUERIES */
