@@ -2,6 +2,6 @@
 
 require_once "config.php";
 
-$_SESSION['token'] = '';
+session_destroy();
 
 header("Location: register.php");
