@@ -12,11 +12,17 @@ $sql->bindValue(':email', $email);
 $sql->execute();
 
 if ($sql->rowCount() > 0) {
-   $user = $sql->fetch(PDO::FETCH_ASSOC);
-   $_SESSION['token'] = $user['token'];
-   header("Location: ../index.php");
-   exit;
-  
+    $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+    if (password_verify($pass, $user['password'])) {
+        $_SESSION['token'] = $user['token'];
+        header("Location: ../index.php");
+        exit;
+    } else {
+        $_SESSION['message'] = "Email ou senha incorreto!";
+        header("Location: ../login.php");
+        exit;
+    }
 } else {
     $_SESSION['message'] = 'E-mail não cadastrado!';
     header("Location: ../login.php");
