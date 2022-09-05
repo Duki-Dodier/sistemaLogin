@@ -4,4 +4,4 @@ require_once "config.php";
 
 session_destroy();
 
-header("Location: register.php");
+header("Location: login.php");

@@ -192,6 +192,30 @@ html{
 
 }
 
+/* UPDATE */
+
+#emaildesa{
+    color: gray;
+}
+
+
+.form-container img{
+
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    margin-bottom: .5rem;
+
+}
+.form-container label{
+    color:var(--white);
+    font-size: 2rem;
+    
+}
+
+
+
+
 
 /* MEDIA QUERIES */
 
