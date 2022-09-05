@@ -25,7 +25,7 @@ if ($sql->rowCount() > 0) {
         $_SESSION['message'] = 'Password not match!';
         header("Location: ../register.php");
     }else{
-        $query = "INSERT INTO users (name,email,password,image) VALUES (:name,:email,:password,:image_name)";
+        $query = "INSERT INTO users (name,email,password,image,token) VALUES (:name,:email,:password,:image_name,:token)";
         $sql = $pdo->prepare($query);
         $sql->bindValue(':name',$name);
         $sql->bindValue(':email',$email);
@@ -33,12 +33,17 @@ if ($sql->rowCount() > 0) {
         $password_hash = password_hash($pass,PASSWORD_DEFAULT);
         $sql->bindValue(':password',$password_hash);
         $sql->bindValue(':image_name',$image_name);
+
+        $token = md5(time().rand(0,9999));
+        $sql->bindValue(':token',$token);
         $sql->execute();
 
         if($sql){
             move_uploaded_file($image_tmp_name,$image_folder);
-            $_SESSION['message'] = 'Registro foi um Sucesso!';
-            header("Location: ../register.php");
+            $_SESSION['token'] = $token;
+            header("Location: ../index.php");
+            exit;
+          
         }
 
     }
