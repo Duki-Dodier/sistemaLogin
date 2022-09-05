@@ -1,6 +1,6 @@
 <?php
 
-//require_once "config.php";
+require_once "config.php";
 
 ?>
 <!DOCTYPE html>
@@ -19,8 +19,17 @@
 </head>
 <body>
     <section class="form-container">
-        <form action="" method="POST" enctype="multipart/form-data">
-            <h3>Regiser Now</h3>
+        <form action="actions/register_action.php" method="POST" enctype="multipart/form-data">
+            <h3>Register Now</h3>
+           
+            <?php if(!empty($_SESSION['message'])):?>
+                <div class="message">
+                    <span><?= $_SESSION['message'] ?></span>
+                    <i class="fas fa-times"></i>
+                </div>
+            <?php $_SESSION['message'] =''; ?>
+            <?php endif; ?>
+
             <input type="text" placeholder="enter your name" class="box" name="name" required>
             <input type="email" placeholder="enter your Email" class="box" name="email" required>
             <input type="password" placeholder="enter your password" class="box" name="pass" required>
